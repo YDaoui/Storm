@@ -1,53 +1,78 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // ---- Gestion du basculement entre login et registrierung ----
-    const showLink = document.getElementById('show-registration-link');
-    const hideLink = document.getElementById('hide-registration-link');
     const loginContainer = document.getElementById('login-form-container');
     const registrationContainer = document.getElementById('registration-form-container');
+    const forgotContainer = document.getElementById('forgot-form-container');
 
-    if (showLink && loginContainer && registrationContainer) {
-        showLink.addEventListener('click', function(e) {
+    // Liens de bascule
+    const showRegLink = document.getElementById('show-registration-link');
+    const hideRegLink = document.getElementById('hide-registration-link');
+    const forgotLink = document.getElementById('forgot-link');
+    const backToLoginLink = document.getElementById('back-to-login-link');
+
+    // --- Afficher inscription, cacher les autres ---
+    if (showRegLink) {
+        showRegLink.addEventListener('click', function(e) {
             e.preventDefault();
             loginContainer.style.display = 'none';
+            forgotContainer.style.display = 'none';
             registrationContainer.style.display = 'block';
         });
     }
 
-    if (hideLink && loginContainer && registrationContainer) {
-        hideLink.addEventListener('click', function(e) {
+    // --- Revenir à la connexion depuis l'inscription ---
+    if (hideRegLink) {
+        hideRegLink.addEventListener('click', function(e) {
             e.preventDefault();
+            registrationContainer.style.display = 'none';
+            forgotContainer.style.display = 'none';
+            loginContainer.style.display = 'block';
+        });
+    }
+
+    // --- Afficher "Passwort vergessen", cacher les autres ---
+    if (forgotLink) {
+        forgotLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            loginContainer.style.display = 'none';
+            registrationContainer.style.display = 'none';
+            forgotContainer.style.display = 'block';
+        });
+    }
+
+    // --- Revenir à la connexion depuis "Passwort vergessen" ---
+    if (backToLoginLink) {
+        backToLoginLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            forgotContainer.style.display = 'none';
             registrationContainer.style.display = 'none';
             loginContainer.style.display = 'block';
         });
     }
 
-    // ---- Gestion du lien "Passwort vergessen?" (simple alerte) ----
-    const forgotLink = document.getElementById('forgot-link');
-    if (forgotLink) {
-        forgotLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('Funktion "Passwort vergessen" wird hier implementiert.');
-        });
-    }
-
-    // ---- Soumission du formulaire de login (exemple) ----
+    // --- Soumission du formulaire de login (exemple) ---
     const loginForm = document.getElementById('login-form');
     if (loginForm) {
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Anmeldeversuch (Demo) – hier würde die Authentifizierung stattfinden.');
-            // Eventuell Weiterleitung nach index.html
-            // window.location.href = 'index.html';
         });
     }
 
-    // ---- Soumission du formulaire d'inscription (exemple) ----
+    // --- Soumission du formulaire d'inscription (exemple) ---
     const regForm = document.getElementById('registration-form');
     if (regForm) {
         regForm.addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Registrierungsversuch (Demo) – hier würden die Daten versendet.');
-            // window.location.href = 'index.html';
+        });
+    }
+
+    // --- Soumission du formulaire "Passwort vergessen" (exemple) ---
+    const forgotForm = document.getElementById('forgot-form');
+    if (forgotForm) {
+        forgotForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Anfrage zum Zurücksetzen des Passworts wurde gesendet (Demo).');
         });
     }
 });

@@ -21,7 +21,7 @@
         </div>
 
         <section class="impressum-card login-card">
-            <!-- Login-Formular -->
+            <!-- 1. Formulaire de connexion (visible par défaut) -->
             <div id="login-form-container">
                 <form id="login-form" action="#" method="post">
                     <div class="form-group">
@@ -45,7 +45,7 @@
                 </p>
             </div>
 
-            <!-- Registrierungs-Formular (caché au début) -->
+            <!-- 2. Formulaire d'inscription (caché) -->
             <div id="registration-form-container" style="display: none; margin-top: 30px; border-top: 1px solid #ccc; padding-top: 20px;">
                 <h3 style="color: #333; margin-bottom: 20px;">Registrierung</h3>
                 <form id="registration-form" action="#" method="post">
@@ -68,8 +68,7 @@
                         <label for="nachname">Nachname</label>
                         <input type="text" id="nachname" name="nachname" placeholder="Nachname" class="form-control" />
                     </div>
-
-                    <!-- Téléphone (icône phone) -->
+                    <!-- Telefon -->
                     <div class="form-group">
                         <label for="tel_vorwahl">Telefon (Festnetz)</label>
                         <div class="input-with-icon">
@@ -80,8 +79,7 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Fax (icône fax) -->
+                    <!-- Fax -->
                     <div class="form-group">
                         <label for="fax_vorwahl">Fax</label>
                         <div class="input-with-icon">
@@ -92,8 +90,7 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- E-Mail (icône enveloppe) -->
+                    <!-- E-Mail -->
                     <div class="form-group">
                         <label for="email">E-Mail</label>
                         <div class="input-with-icon">
@@ -101,12 +98,11 @@
                             <input type="email" id="email" name="email" placeholder="E-Mail" class="form-control icon-input" />
                         </div>
                     </div>
-                    <!-- E-Mail wdh. (sans icône) -->
+                    <!-- E-Mail wdh. -->
                     <div class="form-group">
                         <label for="email_wdh">E-Mail wdh.</label>
                         <input type="email" id="email_wdh" name="email_wdh" placeholder="E-Mail wiederholen" class="form-control" />
                     </div>
-
                     <!-- Datenschutz -->
                     <div class="form-group">
                         <label style="display: flex; align-items: center; gap: 10px; color: #555; cursor: pointer;">
@@ -114,10 +110,27 @@
                             Ich habe die Datenschutzbestimmungen verstanden und akzeptiert
                         </label>
                     </div>
-
                     <div class="form-group text-right">
                         <button type="submit" class="btn-login" style="background-color: #cc0000; color: white; border: none;">Registrieren</button>
                         <a href="#" id="hide-registration-link" style="color: #666; text-decoration: none; font-size: 0.9rem;">Abbrechen</a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- 3. Formulaire "Passwort vergessen" (caché) -->
+            <div id="forgot-form-container" style="display: none; margin-top: 20px;">
+                <h3 style="color: #333; margin-bottom: 15px;">Passwort vergessen?</h3>
+                <p style="color: #555; margin-bottom: 20px;">
+                    Bitte den Benutzernamen oder die E-Mail-Adresse eingeben. Sie erhalten dann umgehend Anweisungen zum Zurücksetzen des Passworts zugesandt.
+                </p>
+                <form id="forgot-form" action="#" method="post">
+                    <div class="form-group">
+                        <label for="forgot-username">Benutzername oder E-Mail-Adresse:</label>
+                        <input type="text" id="forgot-username" name="forgot-username" placeholder="Benutzername oder E-Mail" class="form-control" />
+                    </div>
+                    <div class="form-group text-right" style="display: flex; justify-content: flex-end; gap: 12px;">
+                        <button type="submit" class="btn-login" style="background-color: #cc0000; color: white; border: none;">Anmelden</button>
+                        <a href="#" id="back-to-login-link" style="color: #666; text-decoration: none; font-weight: 500; padding: 10px 20px; border: 1px solid #ccc; border-radius: 30px;">Zurück</a>
                     </div>
                 </form>
             </div>
