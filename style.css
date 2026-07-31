@@ -363,3 +363,9 @@ body.login-page {
 .icon-input {
     padding-left: 40px !important;
 }
+#forgot-form-container .text-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+}
