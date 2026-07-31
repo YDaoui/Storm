@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login – Strom Distributor</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body class="login-page">
+    <main class="main-content">
+        <div class="logo-wrapper">
+            <a href="index.html">
+                <img src="Images/e_on-logo.png" alt="E.ON Logo – Strom Distributor" />
+            </a>
+        </div>
+        <div class="top-bar" style="justify-content: center;">
+            <span style="color: white; font-weight: 600; font-size: 1.1rem;">
+                <span class="fa fa-unlock-alt"></span> Portalanmeldung
+            </span>
+        </div>
+
+        <section class="impressum-card login-card">
+            <!-- Login-Formular -->
+            <div id="login-form-container">
+                <form id="login-form" action="#" method="post">
+                    <div class="form-group">
+                        <label for="user">Benutzername</label>
+                        <input type="text" id="user" name="user" placeholder="Benutzername" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="pass">Passwort</label>
+                        <input type="password" id="pass" name="pass" placeholder="Passwort" class="form-control" />
+                    </div>
+                    <div class="form-group text-right">
+                        <button type="submit" class="btn-login" style="background-color: #cc0000; color: white; border: none;">Anmelden</button>
+                        <a href="#" class="btn-forgot" id="forgot-link">Passwort vergessen?</a>
+                    </div>
+                </form>
+                <p style="margin-top: 20px; text-align: center; color: #666;">
+                    Noch kein Vertriebspartner? 
+                    <a href="#" id="show-registration-link" style="color: #cc0000; text-decoration: none; font-weight: 500;">
+                        Jetzt registrieren
+                    </a>
+                </p>
+            </div>
+
+            <!-- Registrierungs-Formular (caché au début) -->
+            <div id="registration-form-container" style="display: none; margin-top: 30px; border-top: 1px solid #ccc; padding-top: 20px;">
+                <h3 style="color: #333; margin-bottom: 20px;">Registrierung</h3>
+                <form id="registration-form" action="#" method="post">
+                    <!-- Anrede -->
+                    <div class="form-group">
+                        <label for="anrede">Anrede</label>
+                        <select id="anrede" name="anrede" class="form-control">
+                            <option value="Herr">Herr</option>
+                            <option value="Frau">Frau</option>
+                            <option value="Divers">Divers</option>
+                        </select>
+                    </div>
+                    <!-- Vorname -->
+                    <div class="form-group">
+                        <label for="vorname">Vorname</label>
+                        <input type="text" id="vorname" name="vorname" placeholder="Vorname" class="form-control" />
+                    </div>
+                    <!-- Nachname -->
+                    <div class="form-group">
+                        <label for="nachname">Nachname</label>
+                        <input type="text" id="nachname" name="nachname" placeholder="Nachname" class="form-control" />
+                    </div>
+
+                    <!-- Téléphone (icône phone) -->
+                    <div class="form-group">
+                        <label for="tel_vorwahl">Telefon (Festnetz)</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-phone icon"></i>
+                            <div style="display: flex; gap: 10px; width: 100%;">
+                                <input type="text" id="tel_vorwahl" name="tel_vorwahl" placeholder="Vorwahl" class="form-control icon-input" style="flex: 1;" />
+                                <input type="text" id="tel_nummer" name="tel_nummer" placeholder="Rufnummer" class="form-control icon-input" style="flex: 2;" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fax (icône fax) -->
+                    <div class="form-group">
+                        <label for="fax_vorwahl">Fax</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-fax icon"></i>
+                            <div style="display: flex; gap: 10px; width: 100%;">
+                                <input type="text" id="fax_vorwahl" name="fax_vorwahl" placeholder="Vorwahl" class="form-control icon-input" style="flex: 1;" />
+                                <input type="text" id="fax_nummer" name="fax_nummer" placeholder="Rufnummer" class="form-control icon-input" style="flex: 2;" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- E-Mail (icône enveloppe) -->
+                    <div class="form-group">
+                        <label for="email">E-Mail</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-envelope icon"></i>
+                            <input type="email" id="email" name="email" placeholder="E-Mail" class="form-control icon-input" />
+                        </div>
+                    </div>
+                    <!-- E-Mail wdh. (sans icône) -->
+                    <div class="form-group">
+                        <label for="email_wdh">E-Mail wdh.</label>
+                        <input type="email" id="email_wdh" name="email_wdh" placeholder="E-Mail wiederholen" class="form-control" />
+                    </div>
+
+                    <!-- Datenschutz -->
+                    <div class="form-group">
+                        <label style="display: flex; align-items: center; gap: 10px; color: #555; cursor: pointer;">
+                            <input type="checkbox" name="datenschutz" value="1" required />
+                            Ich habe die Datenschutzbestimmungen verstanden und akzeptiert
+                        </label>
+                    </div>
+
+                    <div class="form-group text-right">
+                        <button type="submit" class="btn-login" style="background-color: #cc0000; color: white; border: none;">Registrieren</button>
+                        <a href="#" id="hide-registration-link" style="color: #666; text-decoration: none; font-size: 0.9rem;">Abbrechen</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
