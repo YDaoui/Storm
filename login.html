@@ -4,11 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login – Strom Distributor</title>
-
-    <!-- Favicon pour la barre d'adresse et l'onglet -->
     <link rel="icon" type="image/x-icon" href="Images/Icones/Vertrauen_Icone.ico" />
     <link rel="shortcut icon" href="Images/Icone/Vertrauen_Icone.ico" />
-
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
@@ -16,7 +13,7 @@
     <main class="main-content">
         <div class="logo-wrapper">
             <a href="index.html">
-                <img src="Images/Vertrauen_Logo.png" alt="E.ON Logo – Strom Distributor" />
+                <img src="Images/Vertrauen_Logo.png" alt="Vertrauen – Strom Distributor" />
             </a>
         </div>
         <div class="top-bar" style="justify-content: center;">
@@ -26,12 +23,12 @@
         </div>
 
         <section class="impressum-card login-card">
-            <!-- 1. Formulaire de connexion (visible par défaut) -->
+            <!-- 1. CONNEXION -->
             <div id="login-form-container">
                 <form id="login-form" action="#" method="post">
                     <div class="form-group">
-                        <label for="user">Benutzername</label>
-                        <input type="text" id="user" name="user" placeholder="Benutzername" class="form-control" />
+                        <label for="user">Benutzername (E‑Mail)</label>
+                        <input type="email" id="user" name="user" placeholder="E-Mail" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label for="pass">Passwort</label>
@@ -41,6 +38,7 @@
                         <button type="submit" class="btn-login" style="background-color: #cc0000; color: white; border: none;">Anmelden</button>
                         <a href="#" class="btn-forgot" id="forgot-link">Passwort vergessen?</a>
                     </div>
+                    <div id="login-message" style="margin-top: 10px; font-weight: 500;"></div>
                 </form>
                 <p style="margin-top: 20px; text-align: center; color: #666;">
                     Noch kein Vertriebspartner? 
@@ -50,7 +48,7 @@
                 </p>
             </div>
 
-            <!-- 2. Formulaire d'inscription (caché) -->
+            <!-- 2. INSCRIPTION -->
             <div id="registration-form-container" style="display: none; margin-top: 30px; border-top: 1px solid #ccc; padding-top: 20px;">
                 <h3 style="color: #333; margin-bottom: 20px;">Registrierung</h3>
                 <form id="registration-form" action="#" method="post">
@@ -60,7 +58,6 @@
                         <select id="anrede" name="anrede" class="form-control">
                             <option value="Herr">Herr</option>
                             <option value="Frau">Frau</option>
-                            
                         </select>
                     </div>
                     <!-- Vorname -->
@@ -79,8 +76,8 @@
                         <div class="input-with-icon">
                             <i class="fas fa-phone icon"></i>
                             <div style="display: flex; gap: 10px; width: 100%;">
-                                <input type="text" id="tel_vorwahl" name="tel_vorwahl" placeholder="Vorwahl" class="form-control icon-input" style="flex: 1;" />
-                                <input type="text" id="tel_nummer" name="tel_nummer" placeholder="Rufnummer" class="form-control icon-input" style="flex: 2;" />
+                                <input type="text" id="tel_vorwahl" name="tel_vorwahl" placeholder="Vorwahl" class="form-control icon-input" style="flex:1;" />
+                                <input type="text" id="tel_nummer" name="tel_nummer" placeholder="Rufnummer" class="form-control icon-input" style="flex:2;" />
                             </div>
                         </div>
                     </div>
@@ -90,8 +87,8 @@
                         <div class="input-with-icon">
                             <i class="fas fa-fax icon"></i>
                             <div style="display: flex; gap: 10px; width: 100%;">
-                                <input type="text" id="fax_vorwahl" name="fax_vorwahl" placeholder="Vorwahl" class="form-control icon-input" style="flex: 1;" />
-                                <input type="text" id="fax_nummer" name="fax_nummer" placeholder="Rufnummer" class="form-control icon-input" style="flex: 2;" />
+                                <input type="text" id="fax_vorwahl" name="fax_vorwahl" placeholder="Vorwahl" class="form-control icon-input" style="flex:1;" />
+                                <input type="text" id="fax_nummer" name="fax_nummer" placeholder="Rufnummer" class="form-control icon-input" style="flex:2;" />
                             </div>
                         </div>
                     </div>
@@ -108,21 +105,35 @@
                         <label for="email_wdh">E-Mail wdh.</label>
                         <input type="email" id="email_wdh" name="email_wdh" placeholder="E-Mail wiederholen" class="form-control" />
                     </div>
+
+                    <!-- Champs mot de passe (cachés au départ) -->
+                    <div id="password-fields" style="display: none;">
+                        <div class="form-group">
+                            <label for="reg-password">Passwort</label>
+                            <input type="password" id="reg-password" name="reg-password" placeholder="Passwort" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-password-confirm">Passwort bestätigen</label>
+                            <input type="password" id="reg-password-confirm" name="reg-password-confirm" placeholder="Passwort wiederholen" class="form-control" />
+                        </div>
+                    </div>
+
                     <!-- Datenschutz -->
                     <div class="form-group">
                         <label style="display: flex; align-items: center; gap: 10px; color: #555; cursor: pointer;">
-                            <input type="checkbox" name="datenschutz" value="1" required />
+                            <input type="checkbox" id="datenschutz" name="datenschutz" value="1" required />
                             Ich habe die Datenschutzbestimmungen verstanden und akzeptiert
                         </label>
                     </div>
                     <div class="form-group text-right">
-                        <button type="submit" class="btn-login" style="background-color: #cc0000; color: white; border: none;">Registrieren</button>
+                        <button type="submit" class="btn-login" id="register-btn" style="background-color: #cc0000; color: white; border: none;">Registrieren</button>
                         <a href="#" id="hide-registration-link" style="color: #666; text-decoration: none; font-size: 0.9rem;">Abbrechen</a>
                     </div>
+                    <div id="register-message" style="margin-top: 10px; font-weight: 500;"></div>
                 </form>
             </div>
 
-            <!-- 3. Formulaire "Passwort vergessen" (caché) -->
+            <!-- 3. PASSWORT VERGESSEN -->
             <div id="forgot-form-container" style="display: none; margin-top: 20px;">
                 <h3 style="color: #333; margin-bottom: 15px;">Passwort vergessen?</h3>
                 <p style="color: #555; margin-bottom: 20px;">
@@ -135,12 +146,16 @@
                     </div>
                     <div class="form-group text-right" style="display: flex; justify-content: flex-end; gap: 12px;">
                         <button type="submit" class="btn-login" style="background-color: #cc0000; color: white; border: none;">Anmelden</button>
-                        <a href="#" id="back-to-login-link" style="color: #666; text-decoration: none; font-weight: 500; padding: 10px 20px; border: 1px solid #ccc; border-radius: 30px;">Zurück</a>
+                        <a href="#" id="back-to-login-link" style="color: #666; text-decoration: none; font-weight: 500; padding: 10px 20px; border: 1px solid #535252; border-radius: 30px;">Zurück</a>
                     </div>
+                    <div id="forgot-message" style="margin-top: 10px; font-weight: 500;"></div>
                 </form>
             </div>
         </section>
     </main>
+    <!-- Firebase SDK (compat) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
     <script src="main.js"></script>
 </body>
 </html>

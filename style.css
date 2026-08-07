@@ -81,8 +81,8 @@ body.login-page {
 
 /* ---------- BOUTON LOGIN (et lien) ---------- */
 .btn-login {
-    background-color: #ffffff;
-    color: #cc0000;
+    background-color: #484747;
+    color: #ffffff;
     border: none;
     padding: 10px 32px;
     font-size: 1rem;
@@ -97,7 +97,7 @@ body.login-page {
     display: inline-block;
 }
 .btn-login:hover {
-    background-color: #f0f0f0;
+    background-color: #323030;
     transform: scale(1.04);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
